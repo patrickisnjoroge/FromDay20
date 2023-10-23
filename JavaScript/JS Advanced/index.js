@@ -121,3 +121,5 @@
 //    get: function() { return defaultLocation; },
 //    set: function(value) { defaultLocation = value; }
 // });
+
+// DAY 26
