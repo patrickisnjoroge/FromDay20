@@ -168,4 +168,194 @@
 
 // mixin(Person.prototype, canEat, canWalk);
 
-// DAY 27
+// // DAY 28
+// // PRIVATE MEMBERS USING SYMBOLS
+// const _radius = Symbol();
+// const _draw = Symbol();
+
+// class Circle {
+//   constructor(radius) {
+//     this[_radius] = radius;
+//   }
+
+//   [_draw]() {}
+// }
+
+// const c = new Circle(1);
+// const key = Object.getOwnPropertySymbols(c)[0];
+// console.log(c[key]);
+
+// // PRIVATE PROPERTIES USING WEAKMAPS
+// const _radius = new WeakMap();
+// const _move = new WeakMap();
+// const privateProps = new WeakMap();
+
+// class Circle {
+//   constructor(radius) {
+//     _radius.set(this, radius);
+
+//     _move.set(this, () => {
+//       console.log("move", this);
+//     });
+//   }
+
+//   draw() {
+//     _move.get(this)();
+//     console.log("draw");
+//   }
+// }
+// const c = new Circle(1);
+
+// // GETTERS AND SETTERS
+// const _radius = new WeakMap();
+// class Circle {
+//   constructor(radius) {
+//     _radius.set(this, radius);
+//   }
+
+//   get radius() {
+//     return _radius.get(this);
+//   }
+
+//   set radius(value) {
+//     if (value <= 0) throw new Error("invalid radius");
+//     _radius.set(this, value);
+//   }
+// }
+// const c = new Circle(1);
+
+// // INHERITANCE
+// class Shape {
+//   constructor(color) {
+//     this.color = color;
+//   }
+
+//   move() {
+//     console.log("move");
+//   }
+// }
+
+// class Circle extends Shape {
+//   constructor(color, radius) {
+//     super(color);
+//     this.radius = radius;
+//   }
+
+//   draw() {
+//     console.log("draw");
+//   }
+// }
+// const c = new Circle("red", 1);
+
+// // METHOD OVERRIDING
+// class Shape {
+//   move() {
+//     console.log("move");
+//   }
+// }
+
+// class Circle extends Shape {
+//   move() {
+//     super.move();
+//     console.log("circle move");
+//   }
+// }
+// const c = new Circle();
+
+// CLASSES
+// class Circle {
+//     constructor(radius) {
+//         this.radius = radius;
+//     }
+
+//     // These methods will be added to the prototype.
+//     draw() {
+//     }
+
+//     // This will be available on the Circle class (Circle.parse())
+//     static parse(str) {
+//     }
+// }
+
+// // Using symbols to implement private properties and methods
+// const _size = Symbol();
+// const _draw = Symbol();
+
+// class Square {
+//     constructor(size) {
+//         // "Kind of" private property
+//         this[_size] = size;
+//     }
+
+//     // "Kind of" private method
+//     [_draw]() {
+//     }
+
+//     // By "kind of" I mean: these properties and methods are essentally
+//     // part of the object and are accessible from the outside. But accessing
+//     // them is hard and awkward.
+// }
+
+// // using WeakMaps to implement private properties and methods
+// const _width = new WeakMap();
+
+// class Rectangle {
+//     constructor(width) {
+//         _width.set(this, width);
+//     }
+
+//     draw() {
+//         console.log('Rectangle with width' + _width.get(this));
+//     }
+// }
+
+// // WeakMaps give us better protection than symbols. There is no way
+// // to access private members implemented using WeakMaps from the
+// // outside of an object.
+
+// // Inheritance
+// class Triangle extends Shape {
+//     constructor(color) {
+//         // To call the base constructor
+//         super(color);
+//     }
+
+//     draw() {
+//         // Call the base method
+//         super.draw();
+
+//         // Do some other stuff here
+//     }
+// }
+
+// // CLASSES EXERCISE. ITEMS IN A STACK
+// const _items = new WeakMap();
+// class Stack {
+//   constructor() {
+//     _items.set(this, []);
+//   }
+
+//   push(obj) {
+//     _items.get(this).push(obj);
+//   }
+
+//   pop() {
+//     const items = _items.get(this);
+
+//     if (items.length === 0) throw new Error("Stack is empty!");
+
+//     return _items.get(this).pop();
+//   }
+
+//   peek() {
+//     const items = _items.get(this);
+
+//     if (items.length === 0) throw new Error("Stack is empty!");
+
+//     return items[items.length - 1];
+//   }
+
+//   get count() {
+//     return _items.get(this).length;
+//   }
+// }

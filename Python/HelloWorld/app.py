@@ -319,4 +319,59 @@
 # print("Start")
 # print(multiply(1, 2, 3))
 
-# DAY 25
+# # DAY 28
+# # MODULES
+# # CREATING MODULES
+# import sales
+# from sales import calc_shipping, calc_tax
+
+# sales.calc_shipping()
+
+# calc_shipping()
+# calc_tax()
+
+# # COMPILED PYTHON FILES
+# import sales
+# import sys
+
+# print(sys.path)
+
+# # PACKAGES
+# from ecommerce.sales import calc_tax
+# from ecommerce import sales
+
+# sales.calc_shipping()
+# sales.calc_tax()
+
+# # SUB-PACKAGES
+# from ecommerce.shopping import sales
+
+# # THE DIR() FUNCTION
+# from ecommerce.shopping import sales
+
+
+# # print(dir(sales))
+# print(sales.__name__)
+# print(sales.__package__)
+# print(sales.__file__)
+
+# # EXECUTING MODULES AS SCRIPTS
+# from ecommerce.shopping import sales
+
+# # PYTHON STANDARD LIBRARY
+# # WORKING WITH PATHS
+
+# from pathlib import Path
+
+# # path = Path(r"C:\Program Files\Microsoft")
+# path = Path(
+#     r"C:\Users\user\Desktop\Coding\FromDay20\Python\HelloWorld\ecommerce\__init__.py")
+# path.exists()
+# path.is_file()
+# path.is_dir()
+# print(path.name)
+# print(path.stem)
+# print(path.suffix)
+# print(path.parent)
+# path = path.with_suffix(".txt")
+# print(path.absolute())
