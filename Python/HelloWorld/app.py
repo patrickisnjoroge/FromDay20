@@ -320,4 +320,3 @@
 # print(multiply(1, 2, 3))
 
 # DAY 25
-# from cs50 import get_string
