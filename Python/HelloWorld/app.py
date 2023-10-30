@@ -395,3 +395,109 @@
 #     # conn.commit()
 #     movies = cursor.fetchall()
 #     print(movies)
+
+# # DAY 29
+# # WORKING WITH TIMESTAMPS
+# import time
+
+
+# def send_emails():
+#     for i in range(10000):
+#         pass
+
+
+# start = time.time()
+# send_emails()
+# end = time.time()
+# duration = end - start
+# print(duration)
+
+# # # DAY 29
+# # # WORKING WITH TIMESTAMPS
+# # import time
+
+
+# # def send_emails():
+# #     for i in range(10000):
+# #         pass
+
+
+# # start = time.time()
+# # send_emails()
+# # end = time.time()
+# # duration = end - start
+# # print(duration)
+
+# # # DATETIME OBJECTS
+# # from datetime import datetime
+# # import time
+
+
+# # dt1 = datetime(2018, 1, 1)
+# # dt2 = datetime.now()
+# # dt = datetime.strptime("2018/01/01", "%Y/%m/%d")
+# # dt = datetime.fromtimestamp(time.time())
+
+# # print(f"{dt.year}/{dt.month}")
+# # print(dt.strftime("%Y/%m"))
+
+# print(dt2 > dt1)
+
+# # WORKING WITH TIME DELTAS
+# from datetime import datetime, timedelta
+
+# dt1 = datetime(2018, 1, 1) + timedelta(days=1, seconds=1000)
+# print(dt1)
+# dt2 = datetime.now()
+
+# duration = dt2 - dt1
+# print(duration)
+# print("days", duration.days)
+# print("seconds", duration.seconds)
+# print("total_seconds", duration.total_seconds())
+
+# # GENERATING RANDOM VALUES
+# import random
+# import string
+
+# print(random.random())
+# print(random.randint(1, 10))
+# print(random.choice([1, 2, 3, 4]))
+# print(random.choices([1, 2, 3, 4], k=2))
+# print("".join(random.choices(string.ascii_letters + string.digits, k=4)))
+
+# numbers = [1, 2, 3, 4]
+# random.shuffle(numbers)
+# print(random)
+
+# # OPENING THE BROWSER
+# import webbrowser
+
+# print("Deployment completed")
+# webbrowser.open("http://google.com")
+
+# from email.mine.multipart import MIMEMultipart
+# from email.mime.text import MIMEText
+# import smtplib
+
+# message = MIMEMultipart()
+# message["from"] = "Mosh Hamedani"
+# message["to"] = "testuser@codewithmosh.com"
+# message["subject"] = "This is a test"
+# message.attach(MIMEText("Body"))
+
+# smtp = smtplib.SMTP(host="smtp.gmail.com", port=587) as smtp:
+#   smtp.ehlo()
+#   smtp.starttls()
+#   smtp.login("testuser@codewithmosh.com", "todayskyisblue")
+#   smtp.send_message(message)
+#   print("Sent...")
+
+# # WORKING WITH TEMPLATES
+# import requests
+
+# response = requests.get("http://google.com")
+# print(response)
+
+# DAY 30
+# PIPFILE
