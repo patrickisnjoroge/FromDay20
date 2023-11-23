@@ -46,15 +46,28 @@ img {
 /* HEADER */
 header {
   width: 100%;
-  background-color: var(--dark-grey);
+  /* background-color: var(--dark-grey); */
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1rem 0;
+  z-index: 111;
+  transition: all 0.5s;
+}
+
+header.sticky {
+  background-color: var(--grey);
+  /* border-bottom: 1px solid #777; */
+  padding: 1rem 0;
 }
 
 nav {
-  height: 7.5rem;
+  /* height: 7.5rem; */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .logo {
   font-size: 4.5rem;
   color: var(--color-sec);
@@ -75,6 +88,18 @@ nav {
   color: var(--white);
   font-size: 1.6rem;
   text-decoration: none;
+}
+
+header.sticky li a {
+  color: var(--dark-grey);
+}
+
+/* New Section CSS */
+section.header {
+  width: 100%;
+  height: 90vh;
+  background: url(./images/bg-girl.jpg) center no-repeat;
+  background-size: cover;
 }
 
 /* Section */
@@ -100,4 +125,50 @@ h2 {
 
 .flex > * {
   margin: 3px;
+}
+
+@media screen and (max-width: 600px) {
+  .flex {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Scroll Indicator CSS */
+.scroll-indicator {
+  width: 100%;
+  height: 3px;
+  background: var(--grey);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  visibility: hidden;
+}
+
+.progress {
+  width: 0%;
+  height: 3px;
+  background-color: var(--color-sec);
+}
+
+/* Newsletter Section */
+.newsletter {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: var(--white);
+  border: 2px dashed var(--color-primary);
+  padding: 2rem 3rem;
+  transform: translateX(-100%);
+  transition: all 0.5s;
+}
+
+.fa-times {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.4rem;
+  color: red;
+  cursor: pointer;
 }
